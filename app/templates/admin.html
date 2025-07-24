@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Admin Panel{% endblock %} {% block
+body %}
+
+<table class="table table-light text-center">
+  <thead>
+    <tr>
+      <th scope="col">Customers</th>
+      <th scope="col">Shop Products</th>
+      <th scope="col">Add Shop Product</th>
+      <th scope="col">View Orders</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="{{url_for('admin.app_users')}}">Customers</a></td>
+      <td><a href="{{url_for('admin.shop_products')}}">Show Products</a></td>
+      <td><a href="{{url_for('admin.add_product')}}">Add New Product</a></td>
+      <td><a href="{{url_for('admin.view_orders')}}">View Orders</a></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

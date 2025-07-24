@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}Shop Items{% endblock %} {% block
+body %} {% if products | length < 1 %}
+<h3>No Shop Items</h3>
+{% else %}
+<table class="table table-secondary table-hover text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Date Added</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">MRP</th>
+      <th scope="col">Discounted Price</th>
+      <th scope="col">Discount</th>
+      <th scope="col">Stock Amount</th>
+      <th scope="col">Product Image</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <th scope="col">{{product.id}}</th>
+      <td scope="col">{{product.date_added}}</td>
+      <td scope="col">{{product.product_name}}</td>
+      <td scope="col">{{product.mrp}}</td>
+      <td scope="col">{{product.discounted_price}}</td>
+      <td scope="col">{{product.discount_percentage}}</td>
+      <td scope="col">{{product.in_stock}}</td>
+      <td>
+        <img
+          src="{{ product.product_image }}"
+          alt="{{product.product_name}}-img"
+          style="height: 50px; width: 50px; border-radius: 2px"
+        />
+      </td>
+      <td>
+        <a href="{{url_for('admin.update_product', product_id=product.id)}}"
+          >Update</a
+        ><br />
+        <a href="{{url_for('admin.delete_product', product_id=product.id)}}"
+          >Delete</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %} {% endblock %}

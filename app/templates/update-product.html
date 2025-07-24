@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% block title %}Add Product{% endblock %} {% block
+body %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add New Product</h2>
+  <form
+    method="POST"
+    enctype="multipart/form-data"
+    class="shadow p-4 bg-light rounded"
+  >
+    <table class="table table-borderless align-middle">
+      <tbody>
+        <tr>
+          <th><label for="product_name">Product Name</label></th>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              id="product_name"
+              name="product-name"
+              required
+              value="{{product.product_name}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="mrp">MRP (₹)</label></th>
+          <td>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              id="mrp"
+              name="mrp"
+              required
+              value="{{product.mrp}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="discount_price">Discount Price (₹)</label></th>
+          <td>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              id="discount_price"
+              name="discount-price"
+              required
+              value="{{product.discounted_price}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="discount_percent">Discount (%)</label></th>
+          <td>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              id="discount_percent"
+              name="discount-percent"
+              required
+              value="{{product.discount_percentage}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="product_image">Product Image</label></th>
+          <td>
+            <input
+              type="file"
+              class="form-control"
+              id="product_image"
+              name="product-image"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="in_stock_amt">In Stock Quantity</label></th>
+          <td>
+            <input
+              type="number"
+              class="form-control"
+              id="in_stock_amt"
+              name="in-stock-amt"
+              required
+              value="{{product.in_stock}}"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success">Update Product</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

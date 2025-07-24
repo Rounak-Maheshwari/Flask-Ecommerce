@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}App Users{% endblock %} {% block body
+%}
+
+<table class="table table-light text-center">
+  <tr>
+    <th scope="col">Order Status</th>
+    <th>Update</th>
+  </tr>
+  <tr>
+    <form method="POST">
+      <td>
+        <select name="status" id="status" class="border-rounded">
+          <option value="Pending">Pending</option>
+          <option value="Dispatched">Dispatched</option>
+          <option value="Out For Delivary">Out For Delivary</option>
+          <option value="Delivared">Delivared</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </td>
+      <td>
+        <button type="submit" class="btn btn-dark btn-sm">Update Status</button>
+      </td>
+    </form>
+  </tr>
+</table>
+{% endblock %}

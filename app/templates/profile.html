@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block title %}Profile{% endblock %} {% block body
+%}
+<div class="container mt-4">
+  <h2>Hello, {{ user.username }}</h2>
+
+  <div class="mt-4">
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-danger">Logout</a>
+    <button
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#changePasswordForm"
+      aria-expanded="false"
+      aria-controls="changePasswordForm"
+    >
+      Change Password
+    </button>
+  </div>
+
+  <div class="collapse mt-3" id="changePasswordForm">
+    <div class="card card-body">
+      <form method="POST" action="{{ url_for('auth.change_password') }}">
+        <div class="mb-3">
+          <label for="current_password" class="form-label"
+            >Current Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="current_password"
+            name="current-password"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="new_password" class="form-label">New Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="new_password"
+            name="new-password"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="confirm_password" class="form-label"
+            >Confirm New Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="confirm_password"
+            name="confirm-new-password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-success">Update Password</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

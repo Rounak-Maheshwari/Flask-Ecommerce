@@ -1,0 +1,38 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+ENV/
+
+# Flask instance folder
+instance/
+
+# Flask media folder
+media/
+
+# .env file for sensitive environment variables (e.g., API keys, DB credentials)
+.env
+
+# IDE folders and files
+.vscode/
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Log files
+*.log
+
+# Database files (e.g., SQLite)
+*.sqlite3
+*site.db
+*.db

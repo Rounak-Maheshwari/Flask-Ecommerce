@@ -1,0 +1,100 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+<div class="container col-xl-8">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="{{url_for('static', filename='images/noice watch(1)black.jpg')}}"
+        class="d-block mx-lg-auto img-fluid"
+        alt="banner-image"
+        width="500"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        Upgrade Your Tech Game
+      </h1>
+      <p class="lead">
+        Explore the latest electronics — from smartphones to smart TVs, we have
+        it all at unbeatable prices.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="container" id="featured-3">
+  <div class="row g-4 py-3 row-cols-1 row-cols-lg-3">
+    <div class="feature col bg-body-tertiary">
+      <div
+        class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3"
+      >
+        <i class="bi bi-truck"></i>
+      </div>
+      <h3 class="fs-2 text-body-emphasis">Fast & Free Shipping</h3>
+      <p>On orders above ₹999 to most pin codes.</p>
+    </div>
+    <div class="feature col bg-body-tertiary">
+      <div
+        class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3"
+      >
+        <i class="bi bi-credit-card"></i>
+      </div>
+      <h3 class="fs-2 text-body-emphasis">Secure Payments</h3>
+      <p>Razorpay, UPI, Cards, EMI — all protected.</p>
+    </div>
+    <div class="feature col bg-body-tertiary">
+      <div
+        class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3"
+      >
+        <i class="bi bi-star"></i>
+      </div>
+      <h3 class="fs-2 text-body-emphasis">Top Rated Brands</h3>
+      <p>Apple, Samsung, Sony, Lenovo & more.</p>
+    </div>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-4">Products</h2>
+    <p class="text-muted text-center mb-5">Top deals you don't want to miss!</p>
+
+    <div class="row g-4">
+      {% for product in products%}
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-lg position-relative">
+          <span class="badge bg-danger position-absolute top-0 end-0 m-2"
+            >{{product.discount_percentage}}% OFF</span
+          >
+
+          <img
+            src="{{product.product_image}}"
+            class="card-img-top"
+            alt="Product 1"
+          />
+          <div class="card-body text-center">
+            <h5 class="card-title">{{product.product_name}}</h5>
+            <div class="mb-2">
+              <span class="text-muted text-decoration-line-through"
+                >₹ {{product.mrp}}</span
+              >
+              <span class="text-primary fw-bold ms-2"
+                >₹ {{product.discounted_price}}</span
+              >
+            </div>
+            <a
+              href="{{url_for('main.add_to_cart', product_id=product.id)}}"
+              class="btn btn-outline-primary mt-2"
+              >Add To Cart</a
+            >
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
