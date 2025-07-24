@@ -9,7 +9,7 @@ bcrypt = Bcrypt()
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = 'my_secret_key'
+    # add a secret key
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///site.db"
 
     db.init_app(app)
